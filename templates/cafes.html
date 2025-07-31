@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+      <table class="table table-hover table-dark">
+        <tr>
+          {% for item in header %}
+          <th>{{item}}</th>
+          {% endfor %}
+        </tr>
+
+
+        {% for row in data %}
+        <tr>
+          {% for value in row%}
+          <td>
+            {% if value==row[1] %}
+            <a class="text-decoration-none" href="{{value}}">Maps Link</a>
+            {%else%}
+            {{value}}
+            {% endif %}
+          </td>
+
+
+          {% endfor %}
+        </tr>
+        {% endfor %}
+
+      </table>
+
+      <p><a class="text-decoration-none" href="{{url_for('home')}}">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
